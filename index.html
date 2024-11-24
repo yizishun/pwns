@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> ing </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="pwn" class="text-2xl mt-2 font-sans">PWN导论</h1><p class="font-serif my-1">
+    <include src="Slides_Author">
+        <div class="py-16">
+            <p class="font-serif my-1">
+                <a href="https://www.yizishun.com/" class=" text-amber-900">
+                    1s
+                </a>
+            </p>
+        </div>
+        <div class="row">
+            <p class="font-serif my-1"/>
+            
+            <div class="author-affiliation">
+                <a href="https://vidar.club/," class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        　Vidar-Team　
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/0d4a654016dd45d5b56b73a7d32f8c67.png" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+        </div>
+    </include>
+</p></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">个人/课程简介</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">我是谁？</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/c8b70446e76543df856caa44eae5ef14.png" width="250px"/></p>
+<p class="font-serif my-1"><del>强大的PWN手✖️</del> (不务正业的PWN手✔)</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">或许懂一点PWN</li>
+<li class="ml-8">或许懂一点电路</li>
+<li class="ml-8">或许还懂一点体系结构</li>
+<li class="ml-8">但是完全不会讲课</li>
+</ul>
+<hr/>
+
+<p class="font-serif my-1"><del>希望能从零到一造一台计算机</del></p>
+<p class="font-serif my-1">希望能不只会敲代码，还能解决问题（Coder -&gt; Engineer）</p>
+<p class="font-serif my-1">希望能不只会解决问题，还能尽我所能改变世界（Engineer -&gt; Creator）</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">本次课会讲什么</h2>
+<blockquote>
+<p class="font-serif my-1">课程slide或许会发送至QQ群</p>
+</blockquote>
+<hr/>
+<blockquote>
+<p class="font-serif my-1">首先我认为一节好课应该让学生们课前就知道上完课之后他们将掌握什么</p>
+</blockquote>
+<hr/>
+<p class="font-serif my-1">所以我将本次课分为了多个问题</p>
+<p class="font-serif my-1">如果你可以独立解决这些问题，那你在本次课上或许收获不到什么</p>
+<p class="font-serif my-1">但如果你需要借助网络来回答这些问题，那你这次课一定可以收获很多干货</p>
+<p class="font-serif my-1">并且，本课程不会讲解太多的细节，毕竟时间有限</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">快捷键</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">通过方向键或者<code>hjkl</code>切换幻灯片</li>
+<li class="ml-8">其他快捷键：<ul class="list-disc font-serif">
+<li class="ml-8"><code>o</code>或<code>esc</code>：总览</li>
+<li class="ml-8"><code>b</code>或者<code>v</code>：息屏、亮屏</li>
+<li class="ml-8"><code>f</code>：全屏（<code>esc</code>退出全屏）</li>
+</ul>
+</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1-pwn" class="text-2xl mt-2 font-sans">Q1: 什么是PWN</h1></div></div></div></section><section><div><h2 id="wikipeda" class="text-xl mt-2 pb-2 font-sans">Wikipeda</h2>
+<blockquote>
+<p class="font-serif my-1">Pwn (/ˈpoʊn/, /ˈpuːn/, /pəˈʔoʊn/, /ˈpɔːn/, /piˈoʊn/, /pwəˈʔn̩/, /ˈoʊn/)，是一个骇客语法的俚语词，自"own"这个字引申出来的[1][2]，这个词的含意在于，玩家在整个游戏对战中处在胜利的优势，或是说明竞争对手处在完全惨败的情形下，这个词习惯上在网路游戏文化主要用于嘲笑竞争对手在整个游戏对战中已经完全被击败（例如："You just got pwned!"）。过去式的拼写可以拼成pwnd，pwn3d，pwnt（读成 t 这个音）或是powned（读成 d 这个音）。
+在骇客行话里，尤其在另外一种电脑技术方面，包括电脑（伺服器或个人电脑）、网站、闸道装置、或是应用程式，"pwn"在这一方面的意思是攻破（"to compromise"，危及、损害）或是控制（"to control"）。在这一方面的意义上，它与骇客入侵与破解是相同意思的。例如某一个外部团体已经取得未经公家许可的系统管理员控制权限，并利用这个权限骇入并入侵（"owned" 或是 "pwned"）这个系统。</p>
+</blockquote></div></section><section><div><h2 id="pwn" class="text-xl mt-2 pb-2 font-sans">什么是PWN？</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/2f96c460faeb4a4799ae17d1cdeeb46a.JPG" width="250px"/></p>
+<p class="font-serif my-1">如果提起CTF比赛的其他方面，回答相应的问题或许很直观</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">web就是日站</li>
+<li class="ml-8">逆向就是分析一个二进制程序</li>
+<li class="ml-8">...</li>
+</ul>
+<p class="font-serif my-1">但是PWN并不是那么直观（至少从名字上看是这样的）</p>
+<hr/><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">或许每个人心中有不同的答案</p>
+<p class="font-serif my-1">于我而言，PWN就是<red>日计算机</red></p></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2" class="text-2xl mt-2 font-sans">Q2: 什么是计算机</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">本质上是一堆晶体管</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/8fe40db2eb294a589f4967a9a6de5709.png" width="250px"/>
+<red>你或许很惊讶，但是复杂的计算机就是一堆晶体管搭成的！</red></p>
+<hr/>
+<p class="font-serif my-1">晶体管通过将电压大小转化为开关的闭合，从而实现了模拟信号到逻辑信号的转换</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">那么我们一定就能通过晶体管实现一些简单的逻辑运算，例如左图，就是一个非运算，没错，就是你们C语言中熟悉的!或者~符号的作用</p>
+<p class="font-serif my-1">同样的，与或运算也能被相应表示出来</p>
+<p class="font-serif my-1">与或非运算本质是对于二进制数据的位运算</p></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">恭喜你，终于来到了二进制的世界</h2>
+<p class="font-serif my-1">你终于不需要高中的电路知识就可以学习计算机啦！</p>
+<blockquote>
+<p class="font-serif my-1">本质的原因是：将模拟信号上面实现了一个抽象层，将逻辑信号和模拟信号decouple（解耦）</p>
+<p class="font-serif my-1">既然存在抽象层，逻辑信号其实似乎不管下面是不是模拟信号，刘慈欣的某一部小说就使用了这种思想(人列计算机)</p>
+</blockquote><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">计算机名：秦一号</p>
+<p class="font-serif my-1">CPU：秦始皇最精锐的五个军团</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">挥舞旗帜进行二进制运算</li>
+<li class="ml-8">用三个士兵来组成与门、或门、与非门、或非门、异或门、同或门和三态门，又用两个士兵组成了非门</li>
+<li class="ml-8">将这些基本部件组合起来，构成了计算阵</li>
+</ul></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">二进制</h2>
+<p class="font-serif my-1">按照上述所说，我们现在只需要关注二进制数字就可以了</p>
+<blockquote>
+<p class="font-serif my-1">计算机此时变成了一堆二进制
+但...</p>
+</blockquote><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">010000010011（0x413）</p>
+<p class="font-serif my-1">给你这一坨二进制，我们又是如何知道他的含义呢？</p></div><div class="fragment" data-fragment-index="2"><p class="font-serif my-1">计算机当然懂这一堆二进制，但是计算机也是人类制造的</p>
+<p class="font-serif my-1">所以一开始造计算机的人又是怎么知道这一坨二进制的含义的呢？</p>
+<p class="font-serif my-1">一定是有一个地方！<red>定义着所有二进制数的含义</red></p></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">一点点最近的思考</h2>
+<p class="font-serif my-1">有没有想过不使用二进制来构建计算机系统呢？</p>
+<p class="font-serif my-1">如果我使用模拟信号（即电压值）或者量子信号作为基本单元</p>
+<p class="font-serif my-1">这是可行的，只是因为数字芯片占据主流，所以其上的基础设施很完善，让我们误以为二进制就是计算机的全部</p>
+<p class="font-serif my-1">但是人类的大脑就是一个巨型计算机，但是构成的基础却不是01，而是类似于模拟信号的东西（激素浓度，神经信号...）</p>
+<p class="font-serif my-1">整个世界同样不是由01构成的，二进制究竟是不是最正确的？</p>
+<p class="font-serif my-1">在AI时代，数字芯片是否会被取代呢？</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3-isa" class="text-2xl mt-2 font-sans">Q3: 什么是ISA</h1></div></div></div></section><section><div><h2 id="isa" class="text-xl mt-2 pb-2 font-sans">ISA手册</h2>
+<p class="font-serif my-1">没错，就是这个地方定义这所有（真的是所有吗？）二进制数的含义，也就是指令的编码规则</p>
+<blockquote>
+<p class="font-serif my-1">In computer science, an instruction set architecture (ISA) is <red>an abstract model</red> that generally defines <red>how software controls the CPU</red> in a computer or a family of computers.[1] <red>A device or program that executes instructions described by that ISA</red>, such as a central processing unit (CPU), is called an implementation of that ISA.</p>
+<p class="font-serif my-1">--Wikipedia</p>
+</blockquote>
+<p class="font-serif my-1">说那么多，不如看看真正的ISA手册来的真实<a href="https://riscv.org/technical/specifications/">riscvs手册</a> <a href="https://nju-projectn.github.io/i386-manual/s03_01.htm">x86手册</a></p></div></section><section><div><h2 id="asm-language" class="text-xl mt-2 pb-2 font-sans">ASM language</h2>
+<p class="font-serif my-1">你们或许更熟悉的是assembly language(汇编语言)</p><div class="fragment" data-fragment-index="1"><blockquote>
+<p class="font-serif my-1">In computer programming, assembly language (alternatively assembler language[1] or symbolic machine code),[2][3][4] often referred to simply as assembly and commonly abbreviated as ASM or asm, is any <red>low-level programming language</red> with a very <red>strong correspondence</red> between the instructions in the language and the architecture's machine code instructions.</p>
+</blockquote>
+<p class="font-serif my-1">是一种编程语言，但是十分依赖于机器，或者说十分依赖于不同的ISA（而C语言则是不依赖于机器的，更多关于C语言和asm的关系，在后面会有所介绍）</p>
+<p class="font-serif my-1"><del>由于我讲课前面是z佬，所以这一部分我相信我可以略过</del></p></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">尊嘟是所有吗？</h2>
+<p class="font-serif my-1">当然不是！</p>
+<p class="font-serif my-1">一个二进制可执行程序，如一个ELF程序或者.exe程序，他包含了什么东西呢，这些东西又是在哪里定义的呢？</p>
+<p class="font-serif my-1">如果你现在有一个linux操作系统，请和我一起运行</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>readelf<span class="w"> </span>-a<span class="w"> </span>&lt;elf程序&gt;<span class="w"> </span><span class="c1">#metadata（man 5 elf）</span>
+readelf<span class="w"> </span>-x<span class="w"> </span>.data<span class="w"> </span>&lt;elf程序&gt;<span class="w"> </span><span class="c1">#数据</span>
+readelf<span class="w"> </span>-x<span class="w"> </span>.text<span class="w"> </span>&lt;elf程序&gt;<span class="w"> </span><span class="c1">#指令</span>
+</code></pre></div><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">so，二进制程序 = 元数据 + 数据 + 指令</p>
+<hr/>
+<ul class="list-disc font-serif">
+<li class="ml-8">指令编码在ISA手册中定义</li>
+<li class="ml-8">数据编码在很多手册中定义，包括但不限于：IEEE浮点数规范，ASCII编码表，ISA手册...</li>
+<li class="ml-8">MetaData规范在ABI手册中定义（这个神奇的手册将在后面讲解）</li>
+</ul></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q4" class="text-2xl mt-2 font-sans">Q4: 什么是处理器</h1></div></div></div></section><section><div><h2 id="cpu" class="text-xl mt-2 pb-2 font-sans">CPU</h2>
+<p class="font-serif my-1"><img src="./static/img/ff1e9d2aa265471dbeddb819e713ee80.png" width="600px"/></p>
+<p class="font-serif my-1">An implementation of ISA</p>
+<p class="font-serif my-1">我们终于可以理解什么是计算机了！</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">冯诺伊曼架构</h2>
+<p class="font-serif my-1">冯诺伊曼架构借由创造一组指令集结构，并将所谓的运算转化成一串程序指令的执行细节</p>
+<p class="font-serif my-1">并将这串执行细节和相关的数据存储一个巨大的二维数组中（内存）（uint64_t memory[n];）</p>
+<p class="font-serif my-1">而处理器（CPU）只是不断重复</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">取指：从内存中取出某个长度的二进制数（通常是1 word）</li>
+<li class="ml-8">译码：将指令根据ISA手册进行翻译</li>
+<li class="ml-8">执行：将翻译得来的语义进行实际的执行</li>
+<li class="ml-8">写回：将运算的结果写回，改变处理器状态</li>
+</ul></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">其他实现</h2>
+<p class="font-serif my-1">如果你翻看ISA的定义，<red>A device or program that executes instructions described by that ISA</red>, such as a central processing unit (CPU), is called an implementation of that ISA.</p>
+<p class="font-serif my-1">似乎cpu仅仅是ISA的一个实现方式，ISA作为一种规范（抽象层），实际上可以有多种实现方式</p>
+<p class="font-serif my-1">比如，我们可以用一个c程序实现ISA（但是为了叙述的完整性，将这个具体的实现demo放在Q6进行讲解）</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q5" class="text-2xl mt-2 font-sans">Q5: 什么是状态机</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">建模</h2>
+<p class="font-serif my-1">计算机的世界太过于复杂，人们想出各种办法对其进行简化，包括</p>
+<p class="font-serif my-1">增加抽象层，模块化，和对其进行建模</p>
+<p class="font-serif my-1">对一个事物进行建模，可以简化一个事物的细节而抓住其主要特征</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">现在我想讨论一个具体的模型：</p>
+<p class="font-serif my-1"><red>state machine</red></p></div></div></section><section><div><h2 id="demo" class="text-xl mt-2 pb-2 font-sans">一个小demo</h2>
+<p class="font-serif my-1">在Q4，我们说过，cpu的功能不就是在内存中取指，然后翻译执行吗？</p>
+<p class="font-serif my-1">而内存又仅仅只是一个巨大的数组而已</p>
+<p class="font-serif my-1">那我们是否可以用c语言来写一个ISA的impl呢？</p>
+<p class="font-serif my-1">当然可以！你电脑中的虚拟机大概率就是c写的（实际上底层就是qemu，一个很牛逼的模拟器）</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">一个仅用一个头文件实现的一个<a href="https://github.com/cnlohr/mini-rv32ima">RISC-V32IMA系统模拟器</a></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-r<span class="w"> </span>-np<span class="w"> </span>-nH<span class="w"> </span>--cut-dirs<span class="o">=</span><span class="m">2</span><span class="w"> </span>-R<span class="w"> </span><span class="s2">"index.html*"</span><span class="w"> </span><span class="s2">"https://jyywiki.cn/os-demos/introduction/mini-rv32ima/"</span>
+</code></pre></div></div></div></section><section><div><h2 id="cpu" class="text-xl mt-2 pb-2 font-sans">CPU是一个状态机</h2>
+<p class="font-serif my-1">在这个模拟器中，整个计算机系统的状态都被封装在一个结构体中 (包括内存！是的，的确有内存也封装在一起的 CPU，例如全志 D1s) ：</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="k">struct</span><span class="w"> </span><span class="nc">CPUState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Processor internal state</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">regs</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span><span class="w"> </span><span class="n">csrs</span><span class="p">[</span><span class="n">CSR_COUNT</span><span class="p">];</span>
+
+<span class="w">    </span><span class="c1">// Memory state</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">mem</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">mem_offset</span><span class="p">,</span><span class="w"> </span><span class="n">mem_size</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p class="font-serif my-1">而你完全可以把 rv32ima_step 理解成是数学意义上的函数：它根据当前的 CPUState，计算出执行一条指令后的 CPUState。</p>
+<p class="font-serif my-1">CPUState = rv32ima_step(CPUState)</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">实际上，每一条指令的执行，都会使这个状态向前走一步</p></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">c语言是一个状态机</h2>
+<p class="font-serif my-1">如果我们用状态机的视角来看c语言代码</p>
+<p class="font-serif my-1">状态就是所有变量的值（全局变量，局部变量）</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">那我们就可以从这个视角实现一个c语言的解释器</p>
+<p class="font-serif my-1">就像python解释器一样！每走一步就可以获得每一个变量值的变化</p></div><div class="fragment" data-fragment-index="2"><p class="font-serif my-1"><red>可是假如有一步需要从外部读取输入？</red></p>
+<p class="font-serif my-1">我们能否抓住这个输入机会恶意修改c语言状态机（或者说计算机状态呢？）</p>
+<p class="font-serif my-1">这就是pwn题的本质！</p></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统的设置也可以是状态机</h2>
+<p class="font-serif my-1">不知道你有没有遇见过这样一个问题</p>
+<hr/><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">每次按照官网教程下载一个包，总是在自己的环境上没有办法配置，总是被一些莫名其妙的依赖整的头昏脑胀</p>
+<hr/>
+<p class="font-serif my-1">是否能将linux发行版也看做一个状态机？</p>
+<p class="font-serif my-1">当你第一次获得一个linux发行版的时候，他还是很干净的，你每修改一个配置文件，每新下载一个包，他的状态就会向前走一个步</p>
+<p class="font-serif my-1">所以到最后，你的linux变得越来越混乱，<red>状态变得越来越不可预测！</red>有没有解决办法呢？</p></div></div></section><section><div><h2 id="nix" class="text-xl mt-2 pb-2 font-sans">nix！</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">声明式的配置</li>
+<li class="ml-8">意味着将所有包和配置文件放在一个文件夹下进行管理！</li>
+<li class="ml-8">意味着将整个系统的配置全部都写在一起！</li>
+<li class="ml-8">意味着将整个配置的状态全部放在一起管理！</li>
+<li class="ml-8">意味着状态完全可预测！因为系统的状态你全部都真正的写下来了</li>
+<li class="ml-8">nixOS在启动时会读取这个<red>状态文件</red>，然后在每次启动后都会到一个具体的状态！</li>
+</ul><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">我不是在传教，我只是告诉大家可以用state machine的观点去看计算机世界的任何事物</p>
+<p class="font-serif my-1">然后就会发现，pwn本质就是通过干扰原本（程序员预期）的状态转移，来到达一个恶意的状态</p></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q6-abi" class="text-2xl mt-2 font-sans">Q6: 什么是ABI</h1></div></div></div></section><section><div><h2 id="abi" class="text-xl mt-2 pb-2 font-sans">为什么需要ABI</h2>
+<p class="font-serif my-1">在Q3，我们第一次接触了ABI的一个方面，你还记得吗？</p>
+<p class="font-serif my-1">所以我们为什么需要这个规范呢？</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">本质的原因是ISA手册，以及各种数据编码手册不够描述整个二进制的世界</p>
+<p class="font-serif my-1">或者换一种说法，上面这些手册仅仅描述了二进制的构成，而没有描述二进制世界的规则</p>
+<p class="font-serif my-1">而这就是ABI（Application binary interface）手册发挥作用的地方</p></div></div></section><section><div><h2 id="abi" class="text-xl mt-2 pb-2 font-sans">什么是ABI</h2>
+<p class="font-serif my-1">你是否存在这些疑问</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">在函数调用时，参数被放在了哪里</li>
+<li class="ml-8">你是否疑惑于ida反汇编时函数前面的那个fastcall是什么</li>
+<li class="ml-8">不同语言的模块可以直接交互吗？</li>
+<li class="ml-8">一个结构体或数组在内存中的具体布局是怎样的？
+...</li>
+</ul>
+<p class="font-serif my-1">所有的一切，都可以在ABI手册中找到答案</p></div></section><section><div><h2 id="abi" class="text-xl mt-2 pb-2 font-sans">阅读ABI手册, 理解计算机系统</h2>
+<blockquote>
+<p class="font-serif my-1">事实上, ABI手册是ISA, OS, 编译器, 运行时环境, C语言和用户进程的桥梁, 非常值得大家去阅读. ICS课本上那些让你摸不着头脑的约定, 大部分也是出自ABI手册. Linux上遵守的ABI是System V ABI, 它又分为两部分, 一部分是和处理器无关的generic ABI(gABI), 例如ELF格式, 动态连接, 文件系统结构等; 另一部分是和处理器相关的processor specific ABI(psABI), 例如调用约定, 操作系统接口, 程序加载等. 你至少也应该去看看ABI手册的目录, 翻一下正文部分的图, 这样你就会对ABI手册有一个大致的了解. 如果你愿意深入推敲一下"为什么这样约定", 那就是真正的"深入理解计算机系统了".</p>
+<p class="font-serif my-1">--南大PA实验,希望这段话能带给大家启发和力量</p>
+</blockquote>
+<p class="font-serif my-1"><a href="https://math-atlas.sourceforge.net/devel/assembly/abi386-4.pdf">systemV ABI for i386</a></p>
+<p class="font-serif my-1">来一个ABI的具体例子吧：function calling convention</p></div></section><section><div><h2 id="stack" class="text-xl mt-2 pb-2 font-sans">什么是栈（stack）</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/01f7b083d9ee4d46925089f71f673721.jpg" width="300px"/>
+is an abstract data type</p>
+<p class="font-serif my-1">想象一个盘子堆，你仅仅只可以在盘子堆的上部进行放置和移除盘子</p>
+<p class="font-serif my-1">数据进出的顺序是后进先出（Last In First Out）</p>
+<p class="font-serif my-1">支持两种操作</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">Push, which adds an element to the collection, and</li>
+<li class="ml-8">Pop, which removes the most recently added element.</li>
+</ul>
+<p class="font-serif my-1">是不是也挺简单的</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">调用约定</h2>
+<p class="font-serif my-1">你是否有过疑问，函数调用是怎么实现的？函数是怎么返回到具体的位置的？</p>
+<p class="font-serif my-1">更重要的问题是如果有多个函数在不断递归调用，怎么样处理他们之间的复杂的父子关系</p></div></section><section><div><div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>0x8000000c:<span class="w"> </span>call<span class="w"> </span><span class="o">[</span>_trm_init@0x80000260<span class="o">]</span>
+0x80000270:<span class="w">   </span>call<span class="w"> </span><span class="o">[</span>main@0x800001d4<span class="o">]</span>
+0x800001f8:<span class="w">     </span>call<span class="w"> </span><span class="o">[</span>f0@0x80000010<span class="o">]</span>
+0x8000016c:<span class="w">       </span>call<span class="w"> </span><span class="o">[</span>f2@0x800000a4<span class="o">]</span>
+0x800000e8:<span class="w">         </span>call<span class="w"> </span><span class="o">[</span>f1@0x8000005c<span class="o">]</span>
+0x8000016c:<span class="w">           </span>call<span class="w"> </span><span class="o">[</span>f2@0x800000a4<span class="o">]</span>
+0x800000e8:<span class="w">             </span>call<span class="w"> </span><span class="o">[</span>f1@0x8000005c<span class="o">]</span>
+0x8000016c:<span class="w">               </span>call<span class="w"> </span><span class="o">[</span>f2@0x800000a4<span class="o">]</span>
+0x800000e8:<span class="w">                 </span>call<span class="w"> </span><span class="o">[</span>f1@0x8000005c<span class="o">]</span>
+0x8000016c:<span class="w">                   </span>call<span class="w"> </span><span class="o">[</span>f2@0x800000a4<span class="o">]</span>
+0x800000e8:<span class="w">                     </span>call<span class="w"> </span><span class="o">[</span>f1@0x8000005c<span class="o">]</span>
+0x8000016c:<span class="w">                       </span>call<span class="w"> </span><span class="o">[</span>f2@0x800000a4<span class="o">]</span>
+0x800000e8:<span class="w">                         </span>call<span class="w"> </span><span class="o">[</span>f1@0x8000005c<span class="o">]</span>
+0x80000058:<span class="w">                         </span>ret<span class="w">  </span><span class="o">[</span>f0<span class="o">]</span><span class="w">              </span><span class="c1"># 注释(2)</span>
+0x800000fc:<span class="w">                       </span>ret<span class="w">  </span><span class="o">[</span>f2<span class="o">]</span><span class="w">                </span><span class="c1"># 注释(1)</span>
+0x80000180:<span class="w">                       </span>call<span class="w"> </span><span class="o">[</span>f2@0x800000a4<span class="o">]</span>
+0x800000e8:<span class="w">                         </span>call<span class="w"> </span><span class="o">[</span>f1@0x8000005c<span class="o">]</span>
+0x80000058:<span class="w">                         </span>ret<span class="w">  </span><span class="o">[</span>f0<span class="o">]</span>
+0x800000fc:<span class="w">                       </span>ret<span class="w">  </span><span class="o">[</span>f2<span class="o">]</span>
+0x800001b0:<span class="w">                     </span>ret<span class="w">  </span><span class="o">[</span>f3<span class="o">]</span><span class="w">                  </span><span class="c1"># 注释(3)</span>
+0x800000fc:<span class="w">                   </span>ret<span class="w">  </span><span class="o">[</span>f2<span class="o">]</span>
+</code></pre></div></div></section><section><div><h2 id="cond" class="text-xl mt-2 pb-2 font-sans">调用约定（con'd）</h2>
+<p class="font-serif my-1">如此复杂的关系，如何处理，如果它是你的一道PTA题目呢？你会选择什么方法解决？</p>
+<p class="font-serif my-1">问题描述：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">输入：给你一个函数调用序列，分析他们的规律</li>
+<li class="ml-8">输出：按照上述缩进形式输出</li>
+</ul><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">没错，答案就是用<red>栈</red>，没想到吧哈哈哈哈哈😈</p>
+<p class="font-serif my-1">call对应着入栈，return对应着出栈，由于LIFO，可以很好的处理函数之间的调用关系</p>
+<hr/></div><div class="fragment" data-fragment-index="2"><p class="font-serif my-1">真实的环境中也是通过这种方式来处理函数的关系的</p></div></div></section><section><div><h2 id="cond" class="text-xl mt-2 pb-2 font-sans">调用约定（con'd）</h2>
+<p class="font-serif my-1">描述函数之间的调用关系在真实环境中确实很有用</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">但是，在真实的环境中</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">一个函数不仅需要知道他的父亲是谁</li>
+<li class="ml-8">还需要知道父亲给自己的参数</li>
+<li class="ml-8">以及执行完怎么回去</li>
+<li class="ml-8">还有一些在函数内部定义的一些局部变量</li>
+</ul>
+<p class="font-serif my-1">这些数据同样需要被描述，不过我们只仅仅需要将这些元数据在调用时顺手放在栈中不就好了</p>
+<p class="font-serif my-1">这就是函数栈帧</p></div></div></section><section><div><h2 id="cond" class="text-xl mt-2 pb-2 font-sans">调用约定（con'd）</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/99ced3b7ef0f49e0b6de7a3111ee8333.png" width="300px"/></p>
+<p class="font-serif my-1">可以看到，当前执行的函数永远出现在栈顶，直到它return，这个栈帧就会被pop出去，此时栈顶指向上一个函数</p>
+<p class="font-serif my-1">可是，什么是调用约定呢？</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">就是如何调用一个子函数（或者说procedure）的过程，包括参数传递等</p>
+<p class="font-serif my-1">常用的调用约定实现有</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">cdecl</li>
+<li class="ml-8">fastcall</li>
+<li class="ml-8">stdcall
+...</li>
+</ul>
+<p class="font-serif my-1">时间原因，不展开讲具体细节了</p></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q7" class="text-2xl mt-2 font-sans">Q7: 重新来看：</h1>
+<hr/>
+<h1 id="_1" class="text-2xl mt-2 font-sans">什么是计算机？</h1>
+<h1 id="pwn" class="text-2xl mt-2 font-sans">又什么是PWN？</h1></div></div></div></section><section><div><h2 id="state-machine" class="text-xl mt-2 pb-2 font-sans">state machine</h2>
+<p class="font-serif my-1">用状态机的视角来看计算机和pwn</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">计算机本身是一个状态机</li>
+<li class="ml-8">我们通过某些方式泄漏出一些机密状态</li>
+<li class="ml-8">计算机通过指令进行状态转移</li>
+<li class="ml-8">某些指令访问io，或者一些别的方式让我们干扰原本程序的运行</li>
+<li class="ml-8">从而精心修改程序的状态</li>
+<li class="ml-8">从而让程序转移到我们想要的恶意状态</li>
+</ul>
+<p class="font-serif my-1">这就是我理解的PWN</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">举个栗子？</h1></div></div></div></section><section><div><h2 id="shellcode" class="text-xl mt-2 pb-2 font-sans">省赛的shellcode题</h2>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="nf">pop</span><span class="w"> </span><span class="no">rdx</span><span class="c1">;</span>
+<span class="nf">pop</span><span class="w"> </span><span class="no">rdi</span><span class="c1">;</span>
+<span class="nf">pop</span><span class="w"> </span><span class="no">rsi</span><span class="c1">;</span>
+<span class="nf">pop</span><span class="w"> </span><span class="no">rsi</span><span class="c1">;</span>
+<span class="nf">sub</span><span class="w"> </span><span class="no">rdx</span><span class="p">,</span><span class="w"> </span><span class="mi">0x41</span><span class="c1">;</span>
+<span class="nf">call</span><span class="w"> </span><span class="no">rdx</span><span class="c1">;</span>
+</code></pre></div>
+
+<p class="font-serif my-1">白夜的wp</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">通过放入有限条指令，每一条指令都精心构造，对状态进行转移，最终提供了一个最小版本可以调用syscall的状态机</p>
+<p class="font-serif my-1">最后一步将状态机转移至某一条指令，最终再开辟一个更大的空间从而实现getshell</p></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">终极拷问！</h1></div></div></div></section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">如何让世界上的程序都没有漏洞</h1>
+<h1 id="_2" class="text-2xl mt-2 font-sans"/>
+<h1 id="_3" class="text-2xl mt-2 font-sans">(换句话说，如何找到世界上所有程序的漏洞)</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">为什么我们会写出有漏洞的程序？</h2>
+<p class="font-serif my-1"><del>人类太蠢了</del></p>
+<p class="font-serif my-1">一个基本的矛盾：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">机器性 机器是不会犯错的(反人类的)</li>
+<li class="ml-8">人类性 人类天生是会犯错的</li>
+</ul>
+<p class="font-serif my-1">人类写程序本质上就是人类性到机器性的一次靠近</p>
+<p class="font-serif my-1">这件事情本身就不合理，<del>而是应该让机器给机器写程序</del></p>
+<p class="font-serif my-1">比如：</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">);</span>
+</code></pre></div>
+
+<p class="font-serif my-1">所以，犯错是不可避免的</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">程序的几种错误</h2><div class="fragment" data-fragment-index="1"><p class="font-serif my-1"><strong>语法错误</strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">包括类型错误等等一些编译器可以发现的错误(errors)</li>
+<li class="ml-8">一些不安全但是可以通过编译的错误(warnings)</li>
+</ul>
+<p class="font-serif my-1">虽然很烦人，但是可以避免一些错误通过编译</p></div><div class="fragment" data-fragment-index="2"><p class="font-serif my-1"><strong>运行时错误</strong></p>
+<p class="font-serif my-1">会报运行时错误，比如常见的<code>segmentation fault</code>
+但至少可以修复</p>
+<p class="font-serif my-1"><strong>漏网之鱼</strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">包括逻辑性错误在内的所有经过测试但是没发现的错误</li>
+<li class="ml-8">编译器不会卡你，你自己甚至都不会意识到有错误</li>
+</ul>
+<p class="font-serif my-1">比如<code>a = malloc(0x100);</code>在很多情况下都运行良好，
+但是将你的代码给别人用的时候，或者和别人的代码合并的时候，会不会偶尔出现<code>a == NULL</code>的情况？</p>
+<hr/>
+<h2 id="_1" class="text-xl mt-2 pb-2 font-sans">理想情况</h2>
+<p class="font-serif my-1">1,编译器可以发现所有的错误，包括语法错误和<red>逻辑错误</red>
+2,有一个完美的测试集可以测试出所有错误（还记得你的oj吗，他会设置几个测试数据，如果测试数据都通过了，就认定你的程序没有问题（AC），但是真的没有问题了吗，还是仅仅只是测试数据不够多呢？）</p></div></div></section><section><div><h2 id="1" class="text-xl mt-2 pb-2 font-sans">理想情况的可行性探讨1</h2>
+<p class="font-serif my-1">逻辑错误不像是语法错误，它极其具有主观性：</p>
+<p class="font-serif my-1">比如上面的ij写错，是程序员故意而为之还是手滑写错了，这个很难仅靠编译器去区分</p><div class="fragment" data-fragment-index="1"><p class="font-serif my-1">于是需要程序猿的介入！<red>由程序猿告诉编译器哪个逻辑是对的，哪个是错误（即，你需要给编译器一份逻辑正确的实现参考）</red></p>
+<p class="font-serif my-1">这自然是可行的，比如，在程序中插入断言<code>assert</code>，来告诉运行时环境到这里，某个变量应该是什么值，在什么范围以内</p>
+<p class="font-serif my-1">但是这也仅仅是在运行时，没有办法把逻辑错误提前到编译时，但是我相信，这一定是可以做到的，maybe 20年以后</p></div></div></section><section><div><h2 id="2" class="text-xl mt-2 pb-2 font-sans">理想情况的可行性探讨2</h2>
+<p class="font-serif my-1">如何通过一套测试可以找出程序的所有漏洞？</p>
+<p class="font-serif my-1">换句话说，我们如何确保一个程序绝对正确？</p>
+<p class="font-serif my-1">我们可以用数学的语言提出程序的规约
++ 例如：任意时刻 b≥0
++ 有没有可能真正 “证明” 它呢？</p></div></section><section><div><h2 id="2-contd" class="text-xl mt-2 pb-2 font-sans">理想情况的可行性探讨2 (cont'd)</h2>
+<p class="font-serif my-1">程序正确性证明的两种方法：
+<strong>暴力枚举</strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">写一个drive code，运行所有可能的函数调用序列<ul class="list-disc font-serif">
+<li class="ml-8">assert(b &gt;= 0)</li>
+</ul>
+</li>
+<li class="ml-8">如果机器和 driver 都没有 bug，程序就是对的</li>
+</ul>
+<hr/>
+
+<p class="font-serif my-1"><strong>写出证明</strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">For all f-reachable states, b≥0 holds.</li>
+<li class="ml-8">为f写一份数学证明就行了<ul class="list-disc font-serif">
+<li class="ml-8">coq(是的，我们可以写数学证明，还能被另外一个程序检查)</li>
+</ul>
+</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">谢谢大家</h1></div></div></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
